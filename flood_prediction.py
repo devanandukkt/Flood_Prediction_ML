@@ -1,9 +1,8 @@
 import requests
 import joblib
 from geopy.geocoders import Nominatim
+model=joblib.load("flood_model.pkl")
 def predict_a(city):
-# Load Model
-    model = joblib.load("flood_model.pkl")
 
     geolocator = Nominatim(user_agent="geo_app")
     location = geolocator.geocode(city)
@@ -67,9 +66,10 @@ def predict_m(max_temp, min_temp, rainfall, humidity, wind_speed):
     ]]
     prediction = model.predict(input_data)
     if prediction[0] == 1:
-        return "⚠️ FLOOD RISK DETECTED"
+        result ="⚠️ FLOOD RISK DETECTED"
     else:
-        return "✅ No Flood Risk"
+        result= "✅ No Flood Risk"
+    print(result)
     webhook = "https://hook.relay.app/api/v1/playbook/cmmelwojb06mx0qm6frnk4rvs/trigger/zANf0QEuPxuAJNQ2fx62Fg"
     payload = {
         "max_temp": max_temp,
