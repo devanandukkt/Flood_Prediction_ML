@@ -6,13 +6,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    result = ""
+    res = ""
     if request.method == "POST":
         city = request.form["city"]
-        print(city)
-        result = predict(city)
-        print(result)
-    return render_template("index.html", result=result)
+        res=city
+        res= predict(city)
+        print(res)
+    return render_template("index.html", result=res)
 
 if __name__ == "__main__":
     #app.run(debug=True)
