@@ -11,6 +11,8 @@ def predict(city):
 
     weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={location.latitude}&longitude={location.longitude}&current=relative_humidity_2m,precipitation,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto"
     weather = requests.get(weather_url).json()
+    if "daily" not in weather:
+        return f"{city}"
 
 # Extract values
     max_temp = weather["daily"]["temperature_2m_max"][0]
