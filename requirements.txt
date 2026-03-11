@@ -3,3 +3,6 @@ gunicorn
 pandas
 numpy
 scikit-learn
+joblib
+requests
+geopy
