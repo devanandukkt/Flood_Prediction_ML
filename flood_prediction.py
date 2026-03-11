@@ -3,6 +3,7 @@ import joblib
 from geopy.geocoders import Nominatim
 def predict(city):
 # Load Model
+    city=str(city)
     model = joblib.load("flood_model.pkl")
 
     geolocator = Nominatim(user_agent="geo_app")
