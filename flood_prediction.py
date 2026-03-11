@@ -41,7 +41,7 @@ def predict(city):
     print(result)
 
 # Send Webhook
-    webhook = "https://hook.relay.app/api/v1/playbook/cmmelwojb06mx0qm6frnk4rvs/trigger/zANf0QEuPxuAJNQ2fx62F"
+    webhook = "https://hook.relay.app/api/v1/playbook/cmmelwojb06mx0qm6frnk4rvs/trigger/zANf0QEuPxuAJNQ2fx62Fg"
     payload = {
         "location": city,
         "max_temp": max_temp,
