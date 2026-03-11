@@ -19,7 +19,7 @@ body{
     background:white;
     padding:40px;
     border-radius:12px;
-    width:350px;
+    width:360px;
     text-align:center;
     box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
@@ -29,7 +29,7 @@ h2{
     color:#333;
 }
 
-input{
+input, select{
     width:100%;
     padding:10px;
     margin-top:10px;
@@ -62,7 +62,25 @@ button:hover{
     border-radius:6px;
     font-weight:bold;
 }
+
+.hidden{
+    display:none;
+}
 </style>
+
+<script>
+function toggleMode(){
+    var mode = document.getElementById("mode").value;
+
+    if(mode === "auto"){
+        document.getElementById("autoFields").style.display="block";
+        document.getElementById("manualFields").style.display="none";
+    }else{
+        document.getElementById("autoFields").style.display="none";
+        document.getElementById("manualFields").style.display="block";
+    }
+}
+</script>
 
 </head>
 
@@ -73,9 +91,31 @@ button:hover{
 <h2>🌊 Flood Prediction System</h2>
 
 <form method="POST">
-<label>Enter City</label>
-<input type="text" name="city" placeholder="e.g. Kochi" required>
+
+<label>Select Prediction Mode</label>
+<select name="mode" id="mode" onchange="toggleMode()">
+<option value="auto">Automatic (City)</option>
+<option value="manual">Manual (Enter Data)</option>
+</select>
+
+<!-- Automatic Mode -->
+<div id="autoFields">
+<input type="text" name="city" placeholder="Enter City (e.g. Kochi)">
+</div>
+
+<!-- Manual Mode -->
+<div id="manualFields" class="hidden">
+
+<input type="number" step="any" name="max_temp" placeholder="Max Temperature">
+<input type="number" step="any" name="min_temp" placeholder="Min Temperature">
+<input type="number" step="any" name="rainfall" placeholder="Rainfall">
+<input type="number" step="any" name="humidity" placeholder="Humidity">
+<input type="number" step="any" name="wind_speed" placeholder="Wind Speed">
+
+</div>
+
 <button type="submit">Predict Flood Risk</button>
+
 </form>
 
 {% if result %}
