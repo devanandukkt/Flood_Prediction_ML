@@ -53,3 +53,4 @@ def predict(city):
     }
     print(payload)
     requests.post(webhook, json=payload)
+    return result

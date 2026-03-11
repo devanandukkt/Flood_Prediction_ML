@@ -1,15 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Flood Prediction System</title>
+<meta charset="UTF-8">
+<title>Flood Prediction System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:350px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:15px;
+    border:none;
+    background:#4facfe;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#007bff;
+}
+
+.result{
+    margin-top:20px;
+    padding:10px;
+    background:#f1f1f1;
+    border-radius:6px;
+    font-weight:bold;
+}
+</style>
+
 </head>
+
 <body>
-    <h2>Flood Prediction</h2>
-    <form method="POST">
-        <label>Enter City:</label>
-        <input type="text" name="city" required>
-        <button type="submit">Predict</button>
-    </form>
-    <h3>{{ result }}</h3>
+
+<div class="container">
+
+<h2>🌊 Flood Prediction System</h2>
+
+<form method="POST">
+<label>Enter City</label>
+<input type="text" name="city" placeholder="e.g. Kochi" required>
+<button type="submit">Predict Flood Risk</button>
+</form>
+
+{% if result %}
+<div class="result">
+Prediction Result: {{ result }}
+</div>
+{% endif %}
+
+</div>
+
 </body>
 </html>
