@@ -116,10 +116,11 @@ POST /predict
 Body example:
 ```
 {
+  "max_temp": 29.2,
+  "min_temp": 25.4
   "rainfall": 120,
   "humidity": 80,
-  "temperature": 29,
-  "river_level": 6.5
+  "wind_speed": 15
 }
 ```
 ## 🚀 Future Enhancements
