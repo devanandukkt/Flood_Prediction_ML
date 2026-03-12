@@ -122,12 +122,19 @@ Body example:
   "river_level": 6.5
 }
 ```
+## 🚀 Future Enhancements
 
+- Add WhatsApp / SMS notification system  
+- Connect real-time river water level API  
+- Build an analytics dashboard for past flood predictions  
+- Add maps to visualize flood-prone areas  
+- Add user accounts & history tracking  
+  
 ---
 
 ## 👥 Team Members
 
-- Devanand U K  
+- Devanandu K K T
 - Aswathi K  
 
 ---
